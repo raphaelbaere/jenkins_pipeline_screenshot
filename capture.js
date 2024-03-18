@@ -30,7 +30,7 @@ async function captureScreenshotAndUpload() {
 
     // Fazer upload da captura de tela para o Imgur
     const response = await client.upload({
-        image: fs.createReadStream('C:/Users/rapha/screenshot.png'),
+        image: fs.createReadStream('screenshot.png'),
         type: 'stream',
       });
       console.log(response.data.link);
