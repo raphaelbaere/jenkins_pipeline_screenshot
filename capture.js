@@ -29,7 +29,7 @@ async function captureScreenshotAndSend() {
     // Capturar a screenshot da página
     await page.screenshot({ path: 'screenshot.png' });
 
-    const webhook = new WebhookClient({ url: `${webHook}` });
+    const webhook = new WebhookClient({ url: `https://discord.com/api/webhooks/1219148560533159946/e8GyMfyFdxhiqKz16X23Z_tkrKBoCH6qQFERYKgqyF6gwJi-6z7fpOlA6m_-XCDdZo4y` });
 
     let color
 
