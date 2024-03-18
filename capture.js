@@ -1,12 +1,11 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
-const { WebhookClient } = require('discord.js');
+const { WebhookClient, MessageAttachment } = require('discord.js');
 
 const jobName = process.argv[2];
 const buildNumber = process.argv[3];
 const buildResult = process.argv[4];
-const message = process.argv[5];
-const webHook = process.argv[6];
+const message = process.argv[5]
 
 
 async function captureScreenshotAndSend() {
@@ -29,7 +28,12 @@ async function captureScreenshotAndSend() {
     // Capturar a screenshot da página
     await page.screenshot({ path: 'screenshot.png' });
 
-    const webhook = new WebhookClient({ url: `https://discord.com/api/webhooks/1219148560533159946/e8GyMfyFdxhiqKz16X23Z_tkrKBoCH6qQFERYKgqyF6gwJi-6z7fpOlA6m_-XCDdZo4y` });
+    const webhook = new WebhookClient({ url: 'https://discord.com/api/webhooks/1219148560533159946/e8GyMfyFdxhiqKz16X23Z_tkrKBoCH6qQFERYKgqyF6gwJi-6z7fpOlA6m_-XCDdZo4y' });
+
+    let message = "# Relatorio de Testes/API e UI/\n"
+    message += "**Branch:** MAIN\n"
+    message += `**Build:** ${buildNumber}\n`
+    message += `**Status:** ${buildResult}\n`
 
     let color
 
